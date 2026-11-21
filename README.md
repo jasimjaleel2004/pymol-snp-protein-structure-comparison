@@ -18,12 +18,20 @@ Automated PyMOL script (`pymol_structure_analysis.py`) for comparing wild-type a
 
 1. **Put the files together:** Place `pymol_structure_analysis.py` and your two `.pdb` files (wild-type and variant) in the same folder[cite: 13].
 2. **Change the default residue number and chain ID inside `pymol_structure_analysis.py`:** Open `pymol_structure_analysis.py` and update `70` and `"A"` to match your target residue and chain:
-   ```python
+ ```python
+   # Line 45
    resi_num = int(cli_args[2]) if len(cli_args) >= 3 else 70
+   # Line 46
    chain_id = cli_args[3] if len(cli_args) >= 4 else "A"
    ```
-3. **PDB file names:** Either keep only your two `.pdb` files in the folder so the script auto-detects them, or pass your PDB file names, residue number, and chain ID directly when running the script (see step 5 below). Save `pymol_structure_analysis.py` after any edits[cite: 13].
-
+   ```
+3.**Change the PDB file names** (around lines 42–43 in `pymol_structure_analysis.py`): Put `pymol_structure_analysis.py` and your two `.pdb` files in the same folder, then update these lines:
+   ```python
+   # Line 42
+   wt_file = "wildtype.pdb"
+   # Line 43
+   mut_file = "mutant.pdb"
+   ```
 ## How to Use
 
 1. **Install dependencies:** Make sure PyMOL is installed (with a Python environment supporting `from pymol import cmd`) and install `python-docx`[cite: 13]:
